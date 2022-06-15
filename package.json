@@ -2,12 +2,12 @@
   "name": "test-the-graph",
   "version": "0.1.0",
   "scripts": {
-    "create": "graph create hungdoansy/test-the-graph --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create hungdoansy/test-the-graph --node http://127.0.0.1:8020",
-    "codegen": "graph codegen",
+    "create": "graph create hungdoansy/test-uniswap-v2-subgraph --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create hungdoansy/test-uniswap-v2-subgraph --node http://127.0.0.1:8020",
+    "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "deploy": "graph deploy hungdoansy/test-the-graph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy hungdoansy/test-the-graph --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+    "deploy": "graph deploy hungdoansy/test-uniswap-v2-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-local": "graph deploy hungdoansy/test-uniswap-v2-subgraph --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.30.2",

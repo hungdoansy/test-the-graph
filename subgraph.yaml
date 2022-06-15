@@ -1,27 +1,33 @@
 specVersion: 0.0.4
-description: Gravatar for Ethereum
-repository: https://github.com/hungdoansy/test-the-graph
+description: Test Uniswap
+repository: https://github.com/hungdoansy/test-uniswap-v2-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: Gravity
+    name: Factory
     network: mainnet
     source:
-      address: "0x2E645469f354BB4F5c8a05B3b30A929361cf77eC"
-      abi: Gravity
+      address: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f"
+      abi: Factory
+      startBlock: 14935369
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Gravatar
+        - Pair
+        - Token
       abis:
-        - name: Gravity
-          file: ./abis/Gravity.json
+        - name: Factory
+          file: ./abis/factory.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: ERC20SymbolBytes
+          file: ./abis/ERC20SymbolBytes.json
+        - name: ERC20NameBytes
+          file: ./abis/ERC20NameBytes.json
       eventHandlers:
-        - event: NewGravatar(uint256,address,string,string)
-          handler: handleNewGravatar
-        - event: UpdatedGravatar(uint256,address,string,string)
-          handler: handleUpdatedGravatar
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handleNewPair
       file: ./src/mapping.ts
